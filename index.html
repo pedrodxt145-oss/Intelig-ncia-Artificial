@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalho: Hiperlinks e Hipertexto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        
+        /* Animações Interativas */
+        .fade-in-up {
+            animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .pulse-soft {
+            animation: pulseSoft 2s infinite;
+        }
+
+        @keyframes pulseSoft {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .hidden-section {
+            display: none !important;
+        }
+
+        /* Efeitos para os hiperlinks do trabalho */
+        .hiperlink-trabalho {
+            position: relative;
+            display: inline-block;
+            font-weight: 600;
+            color: #2563eb;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .hiperlink-trabalho::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #2563eb;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+        .hiperlink-trabalho:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        .hiperlink-trabalho:hover {
+            color: #1d4ed8;
+            background-color: #eff6ff;
+            border-radius: 4px;
+            padding: 0 4px;
+            margin: 0 -4px;
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased flex flex-col min-h-screen">
+
+    <header class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3 cursor-pointer group" onclick="showPage('home-view')">
+                <div class="bg-blue-600 text-white p-2 rounded-lg group-hover:bg-blue-700 transition">
+                    <i class="ph-bold ph-link text-2xl"></i>
+                </div>
+                <div>
+                    <!-- TÍTULO CORRIGIDO -->
+                    <h1 class="font-bold text-xl tracking-tight text-slate-900 leading-none">Hiperlinks e Hipertexto</h1>
+                    <span class="text-xs text-slate-500 font-medium">Trabalho Escolar</span>
+                </div>
+            </div>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-8 text-sm font-semibold text-slate-600">
+                    <li><button onclick="showPage('home-view')" class="hover:text-blue-600 transition flex items-center gap-1"><i class="ph ph-house"></i> Início</button></li>
+                    <li><a href="#desenvolvimento" onclick="showPage('home-view')" class="hover:text-blue-600 transition flex items-center gap-1"><i class="ph ph-list-dashes"></i> Tópicos</a></li>
+                    <li><a href="#conclusao" onclick="showPage('home-view')" class="hover:text-blue-600 transition flex items-center gap-1"><i class="ph ph-check-circle"></i> Conclusão</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        
+        <!-- ========================================== -->
+        <!-- PÁGINA INICIAL (HOME) -->
+        <!-- ========================================== -->
+        <div id="home-view" class="view-section">
+            
+            <section class="relative bg-slate-900 text-white overflow-hidden py-24 lg:py-32">
+                <!-- Fundo gerado por CSS (nunca quebra) -->
+                <div class="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-900 via-slate-900 to-black"></div>
+                <div class="absolute inset-0 z-0 opacity-20" style="background-image: radial-gradient(#4b5563 1px, transparent 1px); background-size: 32px 32px;"></div>
+                
+                <div class="relative z-10 max-w-5xl mx-auto px-4 text-center fade-in-up">
+                    <span class="inline-block py-1.5 px-4 rounded-full bg-blue-500/20 text-blue-300 text-sm font-bold tracking-widest mb-6 border border-blue-500/30 shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+                        TRABALHO DE LÍNGUA PORTUGUESA
+                    </span>
+                    <h2 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight">
+                        Inteligência Artificial: <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Como ela transformou o mundo</span>
+                    </h2>
+                    <p class="text-lg md:text-xl text-slate-300 leading-relaxed mb-10 max-w-3xl mx-auto font-light">
+                        <strong>Introdução:</strong> A Inteligência Artificial deixou de ser ficção científica e se tornou a tecnologia mais transformadora da atualidade. Desde recomendações de vídeos até avanços na medicina, este <em>hipertexto</em> explora como sistemas inteligentes processam dados e afetam o nosso dia a dia.
+                    </p>
+                    <a href="#desenvolvimento" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-full font-bold transition duration-300 shadow-lg shadow-blue-600/40 hover:shadow-blue-500/60 hover:-translate-y-1">
+                        Explorar os Assuntos <i class="ph-bold ph-arrow-down pulse-soft"></i>
+                    </a>
+                </div>
+            </section>
+
+            <section id="desenvolvimento" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+                <div class="text-center mb-16 fade-in-up">
+                    <h2 class="text-4xl font-extrabold text-slate-900 mb-4">Desenvolvimento</h2>
+                    <p class="text-slate-600 max-w-2xl mx-auto text-lg">Selecione um dos blocos abaixo. Cada botão é um <strong>hiperlink</strong> que o levará para uma página detalhada sobre o assunto, contendo links reais para fontes externas.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Card 1 -->
+                    <div class="bg-white rounded-3xl shadow-sm border border-slate-200 p-8 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full group cursor-pointer" onclick="showPage('topic-1')">
+                        <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 text-3xl mb-6 group-hover:scale-110 group-hover:rotate-3 transition duration-300 shadow-sm">
+                            <i class="ph-fill ph-device-mobile-camera"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-slate-900">1. A IA no nosso cotidiano</h3>
+                        <p class="text-slate-600 mb-8 flex-grow leading-relaxed">
+                            A IA já está presente em atividades diárias, como buscas, recomendações de vídeos, assistentes virtuais e tradução.
+                        </p>
+                        <span class="text-blue-600 font-bold flex items-center gap-2 group-hover:gap-4 transition-all mt-auto bg-blue-50 py-3 px-4 rounded-xl">
+                            Saiba como a IA está presente <i class="ph-bold ph-arrow-right"></i>
+                        </span>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-white rounded-3xl shadow-sm border border-slate-200 p-8 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full group cursor-pointer" onclick="showPage('topic-2')">
+                        <div class="w-16 h-16 bg-emerald-100 rounded-2xl flex items-center justify-center text-emerald-600 text-3xl mb-6 group-hover:scale-110 group-hover:rotate-3 transition duration-300 shadow-sm">
+                            <i class="ph-fill ph-globe-hemisphere-west"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-slate-900">2. O que a IA mudou no mundo?</h3>
+                        <p class="text-slate-600 mb-8 flex-grow leading-relaxed">
+                            A IA é utilizada na indústria, ciência e serviços, mudando drasticamente a forma como tarefas globais são realizadas.
+                        </p>
+                        <span class="text-emerald-600 font-bold flex items-center gap-2 group-hover:gap-4 transition-all mt-auto bg-emerald-50 py-3 px-4 rounded-xl">
+                            Veja exemplos de impacto <i class="ph-bold ph-arrow-right"></i>
+                        </span>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-white rounded-3xl shadow-sm border border-slate-200 p-8 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full group cursor-pointer" onclick="showPage('topic-3')">
+                        <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center text-purple-600 text-3xl mb-6 group-hover:scale-110 group-hover:rotate-3 transition duration-300 shadow-sm">
+                            <i class="ph-fill ph-briefcase"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-slate-900">3. IA e o futuro do trabalho</h3>
+                        <p class="text-slate-600 mb-8 flex-grow leading-relaxed">
+                            A automação cria novas carreiras e extingue velhas tarefas. Entenda por que novas habilidades humanas são essenciais.
+                        </p>
+                        <span class="text-purple-600 font-bold flex items-center gap-2 group-hover:gap-4 transition-all mt-auto bg-purple-50 py-3 px-4 rounded-xl">
+                            Entenda as mudanças no trabalho <i class="ph-bold ph-arrow-right"></i>
+                        </span>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="bg-white rounded-3xl shadow-sm border border-slate-200 p-8 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full group cursor-pointer md:col-span-2 lg:col-span-1" onclick="showPage('topic-4')">
+                        <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center text-orange-600 text-3xl mb-6 group-hover:scale-110 group-hover:rotate-3 transition duration-300 shadow-sm">
+                            <i class="ph-fill ph-graduation-cap"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-slate-900">4. IA na educação</h3>
+                        <p class="text-slate-600 mb-8 flex-grow leading-relaxed">
+                            Ferramentas ajudam alunos a pesquisar e professores a criar materiais, mas exigem senso crítico e uso ético.
+                        </p>
+                        <span class="text-orange-600 font-bold flex items-center gap-2 group-hover:gap-4 transition-all mt-auto bg-orange-50 py-3 px-4 rounded-xl">
+                            Conheça o uso na educação <i class="ph-bold ph-arrow-right"></i>
+                        </span>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="bg-white rounded-3xl shadow-sm border border-slate-200 p-8 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full group cursor-pointer md:col-span-2 lg:col-span-2" onclick="showPage('topic-5')">
+                        <div class="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center text-red-600 text-3xl mb-6 group-hover:scale-110 group-hover:rotate-3 transition duration-300 shadow-sm">
+                            <i class="ph-fill ph-shield-warning"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-slate-900">5. Benefícios e desafios da IA</h3>
+                        <p class="text-slate-600 mb-8 flex-grow leading-relaxed text-lg">
+                            Apesar de facilitar tarefas, a IA traz perigos gravíssimos como a desinformação, <em>deepfakes</em> e quebra de privacidade.
+                        </p>
+                        <span class="text-red-600 font-bold flex items-center gap-2 group-hover:gap-4 transition-all mt-auto bg-red-50 py-4 px-6 rounded-xl w-fit">
+                            Conheça os desafios urgentes <i class="ph-bold ph-arrow-right"></i>
+                        </span>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="conclusao" class="bg-indigo-900 text-white py-20 relative overflow-hidden">
+                <div class="absolute top-0 right-0 opacity-10 transform translate-x-1/4 -translate-y-1/4">
+                    <i class="ph-fill ph-link text-9xl text-white scale-[3]"></i>
+                </div>
+                <div class="max-w-4xl mx-auto px-4 text-center relative z-10 fade-in-up">
+                    <h2 class="text-4xl font-extrabold mb-8 flex justify-center items-center gap-3">
+                        <i class="ph-bold ph-check-circle text-indigo-400"></i> Conclusão do Trabalho
+                    </h2>
+                    <div class="bg-white/10 backdrop-blur-lg p-10 rounded-3xl border border-white/20 shadow-2xl text-left">
+                        <p class="text-xl text-indigo-100 leading-relaxed mb-6">
+                            A Inteligência Artificial é um marco na história humana. Conforme exploramos através dos <strong>hiperlinks</strong> e deste <strong>hipertexto</strong>, ela transformou profundamente o cotidiano, o mercado de trabalho, a educação e diversas indústrias globais.
+                        </p>
+                        <p class="text-xl text-indigo-100 leading-relaxed">
+                            No entanto, a tecnologia em si é neutra; seu impacto depende inteiramente de como a sociedade escolhe utilizá-la. É fundamental abraçarmos a inovação, mas mantendo o senso crítico bem apurado para contornar desafios urgentes, como a desinformação e os <em>Deepfakes</em>. Somente com educação e ética garantiremos que essas inovações beneficiem a todos.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- PÁGINAS DE CONTEÚDO (ARTIGOS PROFUNDOS) -->
+        <!-- ========================================== -->
+
+        <article id="topic-1" class="view-section hidden-section bg-white min-h-screen pb-24">
+            <div class="w-full bg-gradient-to-r from-blue-600 to-cyan-500 pt-24 pb-16 px-4 shadow-inner relative overflow-hidden">
+                <i class="ph-fill ph-robot absolute -bottom-10 -right-10 text-9xl text-white opacity-20 scale-150 transform -rotate-12"></i>
+                <div class="max-w-4xl mx-auto relative z-10">
+                    <button onclick="showPage('home-view')" class="flex items-center gap-2 text-white/90 hover:text-white transition mb-8 font-bold bg-black/20 hover:bg-black/30 px-5 py-2.5 rounded-full backdrop-blur-sm w-fit">
+                        <i class="ph-bold ph-arrow-left"></i> Voltar à página principal
+                    </button>
+                    <span class="bg-white/20 text-white px-4 py-1.5 rounded-full text-sm font-bold tracking-wider mb-4 inline-block">TÓPICO 1</span>
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">A IA mudou nosso cotidiano</h1>
+                </div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto px-4 mt-12 fade-in-up">
+                <div class="prose prose-lg prose-slate max-w-none">
+                    
+                    <h3 class="text-3xl font-bold text-slate-900 border-b-4 border-blue-200 inline-block pb-2 mb-6">Introdução</h3>
+                    <p class="text-xl leading-relaxed text-slate-700 mb-8">
+                        A Inteligência Artificial deixou de ser uma promessa futurista de filmes de ficção científica e já está, literalmente, nas palmas das nossas mãos. Muitas vezes, utilizamos sistemas altamente complexos de IA sem sequer percebermos, pois ela foi integrada de maneira muito sutil às nossas rotinas diárias, transformando completamente a forma como interagimos com o mundo ao nosso redor.
+                    </p>
+
+                    <!-- IMAGEM SEGURA COM FALLBACK -->
+                    <figure class="my-10 rounded-2xl overflow-hidden shadow-xl border border-slate-200 hover:shadow-2xl transition-shadow duration-300">
+                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1000&q=80" 
+                             alt="Pessoa usando smartphone e tecnologia no dia a dia" 
+                             class="w-full h-auto object-cover max-h-[450px]"
+                             onerror="this.onerror=null; this.src='https://placehold.co/1000x450/1e293b/ffffff?text=Tecnologia+no+Cotidiano';">
+                        <figcaption class="bg-slate-50 text-slate-500 text-sm p-4 text-center border-t border-slate-200 font-medium">
+                            Dispositivos móveis são a principal porta de entrada da IA no nosso cotidiano.
+                        </figcaption>
+                    </figure>
+                    
+                    <h3 class="text-3xl font-bold text-slate-900 border-b-4 border-blue-200 inline-block pb-2 mb-6 mt-4">Desenvolvimento</h3>
+                    <p class="text-xl leading-relaxed text-slate-700 mb-6">
+                        Sabe quando você assiste a um vídeo em redes sociais e a plataforma começa a sugerir vários outros vídeos idênticos que prendem a sua atenção? Isso não é coincidência. As grandes empresas usam algoritmos de <strong>Machine Learning (Aprendizado de Máquina)</strong>. O sistema estuda o tempo que você passa olhando para a tela, aprende os seus gostos e cria um "perfil" seu para entregar conteúdos irresistíveis.
+                    </p>
+                    <p class="text-xl leading-relaxed text-slate-700 mb-6">
+                        Além do entretenimento, a IA organiza nossas casas e cidades. O conceito de <em>Internet das Coisas (IoT)</em> permite que geladeiras, lâmpadas e TVs conversem entre si. Assistentes virtuais como a Alexa ou o Google Assistente não apenas tocam músicas, mas compreendem nuances da nossa voz perfeitamente graças ao Processamento de Linguagem Natural (PLN). Nas ruas, aplicativos como o Waze analisam milhões de dados de GPS de outros motoristas em tempo real, prevendo o trânsito com uma precisão matemática absurda.
+                    </p>
+                    
+                    <div class="bg-blue-50 border-l-8 border-blue-500 p-8 rounded-r-2xl my-10 shadow-sm">
+                        <h4 class="text-xl font-bold text-blue-900 mb-3 flex items-center gap-2"><i class="ph-bold ph-link-simple"></i> Conexão e Pesquisa</h4>
+                        <p class="text-lg text-blue-800 mb-0">
+                            Para se aprofundar e entender como as máquinas aprendem a imitar o raciocínio humano, leia o artigo clicando no hiperlink a seguir: <br><br>
+                            👉 <a href="https://tecnoblog.net/responde/machine-learning-o-que-e-como-funciona/" target="_blank" class="hiperlink-trabalho text-xl">Como funciona o Machine Learning (Tecnoblog)</a>.
+                        </p>
+                    </div>
+
+                    <h3 class="text-3xl font-bold text-slate-900 border-b-4 border-blue-200 inline-block pb-2 mb-6 mt-4">Conclusão do Tópico</h3>
+                    <p class="text-xl leading-relaxed text-slate-700 mb-8">
+                        Em resumo, a IA age como uma "ajudante invisível" constante. Ela poupa o nosso tempo, personaliza nossas experiências digitais e facilita a comunicação, quebrando barreiras de idioma com traduções instantâneas. Ela moldou um cotidiano onde a tecnologia não é apenas uma ferramenta, mas uma parceira de rotina.
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <article id="topic-2" class="view-section hidden-section bg-white min-h-screen pb-24">
+            <div class="w-full bg-gradient-to-r from-emerald-600 to-teal-500 pt-24 pb-16 px-4 shadow-inner relative overflow-hidden">
+                <i class="ph-fill ph-globe absolute -bottom-10 -right-10 text-9xl text-white opacity-20 scale-150 transform -rotate-12"></i>
+                <div class="max-w-4xl mx-auto relative z-10">
+                    <button onclick="showPage('home-view')" class="flex items-center gap-2 text-white/90 hover:text-white transition mb-8 font-bold bg-black/20 hover:bg-black/30 px-5 py-2.5 rounded-full backdrop-blur-sm w-fit">
+                        <i class="ph-bold ph-arrow-left"></i> Voltar à página principal
+                    </button>
+                    <span class="bg-white/20 text-white px-4 py-1.5 rounded-full text-sm font-bold tracking-wider mb-4 inline-block">TÓPICO 2</span>
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">O que a IA mudou no mundo?</h1>
+                </div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto px-4 mt-12 fade-in-up">
+                <div class="prose prose-lg prose-slate max-w-none">
+                    
+                    <h3 class="text-3xl font-bold text-slate-900 border-b-4 border-emerald-200 inline-block pb-2 mb-6">Introdução</h3>
+                    <p class="text-xl leading-relaxed text-slate-700 mb-8">
+                        Enquanto a IA facilita o nosso dia a dia no celular, em escala global o seu impacto é monumental. Ela está no centro da "Quarta Revolução Industrial". O modo como a humanidade produz alimentos, combate doenças graves, explora o espaço e gerencia recursos naturais sofreu a maior transformação do último século.
+                    </p>
+
+                    <!-- IMAGEM SEGURA COM FALLBACK -->
+                    <figure class="my-10 rounded-2xl overflow-hidden shadow-xl border border-slate-200 hover:shadow-2xl transition-shadow duration-300">
+                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1000&q=80" 
+                             alt="Laboratório de tecnologia avançada e pesquisa médica" 
+                             class="w-full h-auto object-cover max-h-[450px]"
+                             onerror="this.onerror=null; this.src='https://placehold.co/1000x450/064e3b/ffffff?text=IA+na+Ciencia+e+Medicina';">
+                        <figcaption class="bg-slate-50 text-slate-500 text-sm p-4 text-center border-t border-slate-200 font-medium">
+                            A união entre medicina e Inteligência Artificial acelera descobertas científicas e salva vidas.
+                        </figcaption>
+                    </figure>
+                    
+                    <h3 class="text-3xl font-bold text-slate-900 border-b-4 border-emerald-200 inline-block pb-2 mb-6 mt-4">Desenvolvimento</h3>
+                    <p class="text-xl leading-relaxed text-slate-700 mb-6">
+                        O impacto mais nobre e direto da IA acontece na <strong>saúde e na pesquisa científica</strong>. Antes, criar um medicamento levava décadas. Hoje, supercomputadores simulam bilhões de reações químicas e ajudam a descobrir curas em poucos meses. Nos hospitais, sistemas avaliam raios-X e ressonâncias, detectando tumores invisíveis a olho nu, permitindo o tratamento antes que a doença avance.
+                    </p>
+                    <p class="text-xl leading-relaxed text-slate-700 mb-6">
+                        Fora dos laboratórios, temos a chamada <em>"Agricultura de Precisão"</em>. Drones com IA sobrevoam plantações e, por meio de câmeras especiais, dizem exatamente quais plantas estão doentes e precisando de água, economizando milhões de litros de recursos hídricos. Além disso, as redes elétricas de países inteiros são controladas por IA para direcionar energia para onde ela é mais necessária, evitando apagões.
+                    </p>
+
+                    <div class="bg-emerald-50 border border-emerald-200 rounded-3xl overflow-hidden my-10 shadow-lg">
+                        <div class="p-6 border-b border-emerald-100 bg-emerald-100/50">
+                            <h4 class="text-2xl font-bold text-emerald-900 flex items-center gap-3"><i class="ph-fill ph-play-circle text-emerald-600 text-3xl"></i> Assista: IA na Medicina</h4>
+                            <p class="text-emerald-800 mt-2">Veja na reportagem como os hospitais brasileiros já estão aplicando a tecnologia para ajudar médicos em tempo real.</p>
+                        </div>
+                        <div class="p-6">
+                            <div class="aspect-video w-full rounded-xl overflow-hidden shadow-md bg-black">
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/v6QUw4AGQNo?rel=0" title="Vídeo do YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                            <div class="mt-4 text-center">
+                                <span class="text-sm text-slate-500">
+                                    Link externo para acesso: <a href="https://www.youtube.com/watch?v=v6QUw4AGQNo" target="_blank" class="hiperlink-trabalho text-emerald-700 text-base">Abrir reportagem no YouTube</a>.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="text-3xl font-bold text-slate-900 border-b-4 border-emerald-200 inline-block pb-2 mb-6 mt-4">Conclusão do Tópico</h3>
+                    <p class="text-xl leading-relaxed text-slate-700 mb-8">
+                        Fica evidente que a Inteligência Artificial funciona como uma "lente de aumento" para a capacidade global. Ao processar volumes de dados monstruosos em segundos, ela impulsiona a humanidade a resolver problemas complexos, desde a segurança alimentar até as mudanças climáticas, moldando um futuro mais eficiente.
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <article id="topic-3" class="view-section hidden-section bg-white min-h-screen pb-24">
+            <div class="w-full bg-gradient-to-r from-purple-600 to-fuchsia-500 pt-24 pb-16 px-4 shadow-inner relative overflow-hidden">
+                <i class="ph-fill ph-briefcase absolute -bottom-10 -right-10 text-9xl text-white opacity-20 scale-150 transform -rotate-12"></i>
+                <div class="max-w-4xl mx-auto relative z-10">
+                    <button onclick="showPage('home-view')" class="flex items-center gap-2 text-white/90 hover:text-white transition mb-8 font-bold bg-black/20 hover:bg-black/30 px-5 py-2.5 rounded-full backdrop-blur-sm w-fit">
+                        <i class="ph-bold ph-arrow-left"></i> Voltar à página principal
+                    </button>
+                    <span class="bg-white/20 text-white px-4 py-1.5 rounded-full text-sm font-bold tracking-wider mb-4 inline-block">TÓPICO 3</span>
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">IA e o futuro do trabalho</h1>
+                </div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto px-4 mt-12 fade-in-up">
+                <div class="prose prose-lg prose-slate max-w-none">
+                    
+                    <h3 class="text-3xl font-bold text-slate-900 border-b-4 border-purple-200 inline-block pb-2 mb-6">Introdução</h3>
+                    <p class="text-xl leading-relaxed text-slate-700 mb-8">
+                        Sempre que uma tecnologia revolucionária surge na história, o medo coletivo de que as máquinas vão "roubar todos os empregos" toma conta da sociedade. Aconteceu na Revolução Industrial com as máquinas a vapor e está acontecendo agora. Contudo, a IA está, na verdade, reformulando a economia, extinguindo funções burocráticas, mas gerando oportunidades inteiramente novas.
+                    </p>
+
+                    <!-- IMAGEM SEGURA COM FALLBACK -->
+                    <figure class="my-10 rounded-2xl overflow-hidden shadow-xl border border-slate-200 hover:shadow-2xl transition-shadow duration-300">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" 
+                             alt="Equipe de pessoas trabalhando e colaborando em ambiente moderno" 
+                             class="w-full h-auto object-cover max-h-[450px]"
+                             onerror="this.onerror=null; this.src='https://placehold.co/1000x450/4c1d95/ffffff?text=Futuro+do+Trabalho';">
+                        <figcaption class="bg-slate-50 text-slate-500 text-sm p-4 text-center border-t border-slate-200 font-medium">
+                            A colaboração entre humanos e algoritmos será a principal exigência do mercado de trabalho.
+                        </figcaption>
+                    </figure>
+                    
+                    <h3 class="text-3xl font-bold text-slate-900 border-b-4 border-purple-200 inline-block pb-2 mb-6 mt-4">Desenvolvimento</h3>
+                    <p class="text-xl leading-relaxed text-slate-700 mb-6">
+                        A IA ataca brilhantemente as <strong>tarefas repetitivas</strong>. Um advogado não precisa mais virar a noite lendo mil páginas de processos antigos; a IA resume tudo em dez segundos. O advogado não é demitido; ele apenas usa o tempo poupado para focar em argumentos criativos no tribunal. Profissionais que abraçam a tecnologia ganham uma produtividade imbatível.
+                    </p>
+                    <p class="text-xl leading-relaxed text-slate-700 mb-6">
+                        Isso cria carreiras inéditas. Uma delas é o <em>"Engenheiro de Prompt"</em>, um especialista treinado unicamente para saber dar as instruções perfeitas para IAs (como o ChatGPT) entregarem os melhores resultados. Também surge a necessidade de Psicólogos de IA e Auditores de Ética, profissionais encarregados de garantir que os robôs nas fábricas ou escritórios tomem decisões justas e sem preconceitos.
+                    </p>
+
+                    <div class="bg-purple-50 border-l-8 border-purple-500 p-8 rounded-r-2xl my-10 shadow-sm">
+                        <h4 class="text-xl font-bold text-purple-900 mb-3 flex items-center gap-2"><i class="ph-bold ph-link-simple"></i> Leitura Recomendada</h4>
+                        <p class="text-lg text-purple-800 mb-0">
+                            Descubra quais são as carreiras do futuro e como os jovens podem se preparar clicando no hiperlink abaixo: <br><br>
+                            👉 <a href="https://guiadoestudante.abril.com.br/orientacao-profissional/10-profissoes-em-alta-para-apostar-em-2026/" target="_blank" class="hiperlink-trabalho text-xl">10 Profissões em Alta (Guia do Estudante)</a>.
+                        </p>
+                    </div>
+
+                    <h3 class="text-3xl font-bold text-slate-900 border-b-4 border-purple-200 inline-block pb-2 mb-6 mt-4">Conclusão do Tópico</h3>
+                    <p class="text-xl leading-relaxed text-slate-700 mb-8">
+                        No mercado de trabalho do amanhã, o grande diferencial não será reter informações na memória, mas sim saber aplicar o conhecimento. As habilidades que a máquina não consegue copiar — como empatia, liderança humana, inteligência emocional e resolução de conflitos — passarão a ser as mais valorizadas e bem pagas pelas empresas de sucesso.
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <article id="topic-4" class="view-section hidden-section bg-white min-h-screen pb-24">
+            <div class="w-full bg-gradient-to-r from-orange-500 to-amber-500 pt-24 pb-16 px-4 shadow-inner relative overflow-hidden">
+                <i class="ph-fill ph-graduation-cap absolute -bottom-10 -right-10 text-9xl text-white opacity-20 scale-150 transform -rotate-12"></i>
+                <div class="max-w-4xl mx-auto relative z-10">
+                    <button onclick="showPage('home-view')" class="flex items-center gap-2 text-white/90 hover:text-white transition mb-8 font-bold bg-black/20 hover:bg-black/30 px-5 py-2.5 rounded-full backdrop-blur-sm w-fit">
+                        <i class="ph-bold ph-arrow-left"></i> Voltar à página principal
+                    </button>
+                    <span class="bg-white/20 text-white px-4 py-1.5 rounded-full text-sm font-bold tracking-wider mb-4 inline-block">TÓPICO 4</span>
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">IA na educação</h1>
+                </div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto px-4 mt-12 fade-in-up">
+                <div class="prose prose-lg prose-slate max-w-none">
+                    
+                    <h3 class="text-3xl font-bold text-slate-900 border-b-4 border-orange-200 inline-block pb-2 mb-6">Introdução</h3>
+                    <p class="text-xl leading-relaxed text-slate-700 mb-8">
+                        Se a sala de aula do século passado era focada na repetição, o modelo atual foi abalado pelo acesso instantâneo ao conhecimento. A Inteligência Artificial trouxe um dos maiores desafios para a educação global: como ensinar alunos que possuem uma ferramenta capaz de escrever redações e resolver equações complexas em poucos segundos?
+                    </p>
+
+                    <!-- IMAGEM SEGURA COM FALLBACK -->
+                    <figure class="my-10 rounded-2xl overflow-hidden shadow-xl border border-slate-200 hover:shadow-2xl transition-shadow duration-300">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1000&q=80" 
+                             alt="Alunos estudando e utilizando tecnologia para aprender" 
+                             class="w-full h-auto object-cover max-h-[450px]"
+                             onerror="this.onerror=null; this.src='https://placehold.co/1000x450/c2410c/ffffff?text=IA+na+Educacao';">
+                        <figcaption class="bg-slate-50 text-slate-500 text-sm p-4 text-center border-t border-slate-200 font-medium">
+                            A tecnologia como ferramenta de tutoria pode personalizar o ensino para as necessidades de cada estudante.
+                        </figcaption>
+                    </figure>
+                    
+                    <h3 class="text-3xl font-bold text-slate-900 border-b-4 border-orange-200 inline-block pb-2 mb-6 mt-4">Desenvolvimento</h3>
+                    <p class="text-xl leading-relaxed text-slate-700 mb-6">
+                        A chave do uso ético da IA na escola é a <strong>Tutorização Personalizada</strong>. Imagine uma sala com 30 estudantes. A IA pode atuar como um tutor individual: se ela percebe que um aluno trava na divisão, ela gera dinâmicas exclusivas para ele, mas acelera o conteúdo para um aluno que já entendeu. Plataformas como o <em>Duolingo</em> e a <em>Khan Academy</em> já usam isso muito bem.
+                    </p>
+                    <p class="text-xl leading-relaxed text-slate-700 mb-6">
+                        Para os educadores, a IA retira a carga do trabalho maçante. Em vez de passar o fim de semana inteiro criando tabelas e corrigindo testes de múltipla escolha, o professor pode usar sistemas que automatizam essas tarefas. Com esse tempo livre, ele foca no que realmente importa: organizar debates, projetos artísticos, atividades corporais e desenvolver o lado humano e social dos alunos.
+                    </p>
+
+                    <div class="bg-orange-50 border border-orange-200 rounded-3xl overflow-hidden my-10 shadow-lg">
+                        <div class="p-6 border-b border-orange-100 bg-orange-100/50">
+                            <h4 class="text-2xl font-bold text-orange-900 flex items-center gap-3"><i class="ph-fill ph-video-camera text-orange-600 text-3xl"></i> Documentário: A sala de aula do futuro</h4>
+                            <p class="text-orange-800 mt-2">Dê o play e veja como países de primeiro mundo estão treinando jovens para usarem o ChatGPT de forma crítica e não apenas como atalho.</p>
+                        </div>
+                        <div class="p-6">
+                            <div class="aspect-video w-full rounded-xl overflow-hidden shadow-md bg-black">
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/7CaXE1vhWCE?rel=0" title="Vídeo do YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                            <div class="mt-4 text-center">
+                                <span class="text-sm text-slate-600">
+                                    Link externo para acesso: <a href="https://www.youtube.com/watch?v=7CaXE1vhWCE" target="_blank" class="hiperlink-trabalho text-orange-700 text-base">Assistir direto na DW Brasil</a>.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="text-3xl font-bold text-slate-900 border-b-4 border-orange-200 inline-block pb-2 mb-6 mt-4">Conclusão do Tópico</h3>
+                    <p class="text-xl leading-relaxed text-slate-700 mb-8">
+                        Usar a inteligência artificial apenas para "colar" ou copiar trabalhos prontos não passa de auto-sabotagem no desenvolvimento estudantil. A verdadeira educação do futuro exige senso crítico: o aluno nota 10 será aquele que sabe como perguntar, que investiga as respostas dadas pela máquina e que transforma dados crus em conhecimento de valor.
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <article id="topic-5" class="view-section hidden-section bg-white min-h-screen pb-24">
+            <div class="w-full bg-gradient-to-r from-red-600 to-rose-500 pt-24 pb-16 px-4 shadow-inner relative overflow-hidden">
+                <i class="ph-fill ph-warning absolute -bottom-10 -right-10 text-9xl text-white opacity-20 scale-150 transform -rotate-12"></i>
+                <div class="max-w-4xl mx-auto relative z-10">
+                    <button onclick="showPage('home-view')" class="flex items-center gap-2 text-white/90 hover:text-white transition mb-8 font-bold bg-black/20 hover:bg-black/30 px-5 py-2.5 rounded-full backdrop-blur-sm w-fit">
+                        <i class="ph-bold ph-arrow-left"></i> Voltar à página principal
+                    </button>
+                    <span class="bg-white/20 text-white px-4 py-1.5 rounded-full text-sm font-bold tracking-wider mb-4 inline-block">TÓPICO 5</span>
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">Benefícios e desafios urgentes da IA</h1>
+                </div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto px-4 mt-12 fade-in-up">
+                <div class="prose prose-lg prose-slate max-w-none">
+                    
+                    <h3 class="text-3xl font-bold text-slate-900 border-b-4 border-red-200 inline-block pb-2 mb-6">Introdução</h3>
+                    <p class="text-xl leading-relaxed text-slate-700 mb-8">
+                        Toda tecnologia grandiosa exige grande responsabilidade. Uma analogia simples: a energia nuclear pode iluminar uma cidade inteira, mas também pode fabricar uma bomba. A Inteligência Artificial compartilha dessa mesma dualidade. Ao lado de seus imensos benefícios sociais e econômicos, ela levanta debates urgentes sobre ética e segurança global.
+                    </p>
+
+                    <!-- IMAGEM SEGURA COM FALLBACK -->
+                    <figure class="my-10 rounded-2xl overflow-hidden shadow-xl border border-slate-200 hover:shadow-2xl transition-shadow duration-300">
+                        <img src="https://images.unsplash.com/photo-1633265486064-086b219458ce?auto=format&fit=crop&w=1000&q=80" 
+                             alt="Conceito visual de segurança da informação e Inteligência Artificial" 
+                             class="w-full h-auto object-cover max-h-[450px]"
+                             onerror="this.onerror=null; this.src='https://placehold.co/1000x450/991b1b/ffffff?text=Desafios+e+Etica+na+IA';">
+                        <figcaption class="bg-slate-50 text-slate-500 text-sm p-4 text-center border-t border-slate-200 font-medium">
+                            Proteger a veracidade das informações e os dados das pessoas é o maior desafio tecnológico atual.
+                        </figcaption>
+                    </figure>
+                    
+                    <h3 class="text-3xl font-bold text-slate-900 border-b-4 border-red-200 inline-block pb-2 mb-6 mt-4">Desenvolvimento: Os Perigos Reais</h3>
+                    <p class="text-xl leading-relaxed text-slate-700 mb-6">
+                        O problema que mais afeta a democracia atual são os <strong>Deepfakes</strong>. A desinformação ganhou armas pesadas com ferramentas que conseguem clonar vozes e rostos com 99% de perfeição. Um vídeo onde o presidente declara uma guerra, que pode causar pânico mundial, pode ser fabricado no quarto de um adolescente criminoso. Isso destrói reputações, aplica golpes bancários e manipula eleições.
+                    </p>
+                    
+                    <blockquote class="bg-slate-100 border-l-8 border-slate-800 p-8 my-10 text-xl italic text-slate-700 rounded-r-xl shadow-sm">
+                        "Se perdermos a habilidade de diferenciar uma evidência real de um áudio gerado por Inteligência Artificial, o próprio conceito de 'verdade' na sociedade estará em perigo."
+                    </blockquote>
+
+                    <p class="text-xl leading-relaxed text-slate-700 mb-6">
+                        Outros problemas sérios incluem o <em>Viés Algorítmico</em> (quando a IA aprende a ser preconceituosa com base em dados antigos da internet) e os abusos de privacidade. Para que as máquinas aprendam, empresas sugam e treinam IAs usando fotos, obras de arte e textos de milhões de pessoas que nunca autorizaram esse uso (violando direitos autorais e regras como a LGPD - Lei Geral de Proteção de Dados).
+                    </p>
+
+                    <div class="bg-red-50 border-l-8 border-red-500 p-8 rounded-r-2xl my-10 shadow-sm">
+                        <h4 class="text-xl font-bold text-red-900 mb-3 flex items-center gap-2"><i class="ph-bold ph-shield-warning"></i> Alerta de Segurança (G1)</h4>
+                        <p class="text-lg text-red-800 mb-0">
+                            Para entender como se proteger, como identificar montagens e o que a polícia tem feito, acesse o link a seguir: <br><br>
+                            👉 <a href="https://g1.globo.com/tecnologia/noticia/2022/02/11/o-que-e-deepfake-e-como-ele-e-usado-para-distorcer-realidade.ghtml" target="_blank" class="hiperlink-trabalho text-xl text-red-700 hover:text-red-900">O que é Deepfake e como se defender? (Portal G1)</a>
+                        </p>
+                    </div>
+
+                    <h3 class="text-3xl font-bold text-slate-900 border-b-4 border-red-200 inline-block pb-2 mb-6 mt-4">Conclusão do Tópico</h3>
+                    <p class="text-xl leading-relaxed text-slate-700 mb-8">
+                        A IA não deve ser temida, mas sim rigorosamente regulamentada. Precisamos de leis globais severas, punições para criadores de deepfakes e transparência das grandes empresas. Porém, a linha de defesa mais importante somos nós mesmos: devemos desenvolver o hábito de nunca compartilhar informações que causam choque emocional sem antes <strong>checar as fontes</strong> originais.
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <article id="topic-2" class="view-section hidden-section bg-white min-h-screen pb-24">
+            <div class="w-full bg-gradient-to-r from-emerald-600 to-teal-500 pt-24 pb-16 px-4 shadow-inner relative overflow-hidden">
+                <i class="ph-fill ph-globe absolute -bottom-10 -right-10 text-9xl text-white opacity-20 scale-150 transform -rotate-12"></i>
+                <div class="max-w-4xl mx-auto relative z-10">
+                    <button onclick="showPage('home-view')" class="flex items-center gap-2 text-white/90 hover:text-white transition mb-8 font-bold bg-black/20 hover:bg-black/30 px-5 py-2.5 rounded-full backdrop-blur-sm w-fit">
+                        <i class="ph-bold ph-arrow-left"></i> Voltar à página principal
+                    </button>
+                    <span class="bg-white/20 text-white px-4 py-1.5 rounded-full text-sm font-bold tracking-wider mb-4 inline-block">TÓPICO 2</span>
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">O que a IA mudou no mundo?</h1>
+                </div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto px-4 mt-12 fade-in-up">
+                <div class="prose prose-lg prose-slate max-w-none">
+                    
+                    <h3 class="text-3xl font-bold text-slate-900 border-b-4 border-emerald-200 inline-block pb-2 mb-6">Introdução</h3>
+                    <p class="text-xl leading-relaxed text-slate-700 mb-8">
+                        Enquanto a IA facilita o nosso dia a dia no celular, em escala global o seu papel é gigantesco. Ela revolucionou indústrias inteiras que movem a economia e a sobrevivência do nosso planeta. O modo como produzimos alimentos, diagnosticamos pacientes e estudamos as mudanças climáticas nunca mais será o mesmo.
+                    </p>
+                    
+                    <h3 class="text-3xl font-bold text-slate-900 border-b-4 border-emerald-200 inline-block pb-2 mb-6 mt-8">Desenvolvimento</h3>
+                    <p class="text-xl leading-relaxed text-slate-700 mb-6">
+                        O impacto mais nobre e direto da Inteligência Artificial está acontecendo nos <strong>hospitais e centros de pesquisa</strong>. Hoje, sistemas treinados com milhões de imagens médicas conseguem identificar anomalias, como pequenos tumores em raios-X ou ressonâncias magnéticas, muito antes de um médico experiente perceber a olho nu. Isso salva vidas através do diagnóstico precoce.
+                    </p>
+                    <p class="text-xl leading-relaxed text-slate-700 mb-6">
+                        Na agricultura, a IA guia tratores autônomos e analisa dados do clima e do solo para saber exatamente onde colocar sementes e água, evitando o desperdício de recursos naturais.
+                    </p>
+
+                    <!-- Caixa de Vídeo Interativo -->
+                    <div class="bg-emerald-50 border border-emerald-200 rounded-3xl overflow-hidden my-10 shadow-lg">
+                        <div class="p-6 border-b border-emerald-100 bg-emerald-100/50">
+                            <h4 class="text-2xl font-bold text-emerald-900 flex items-center gap-3"><i class="ph-fill ph-play-circle text-emerald-600 text-3xl"></i> Assista: IA na Medicina</h4>
+                            <p class="text-emerald-800 mt-2">Dê o play abaixo para assistir a uma reportagem real sobre a tecnologia ajudando os médicos brasileiros (o vídeo roda aqui mesmo!).</p>
+                        </div>
+                        <div class="p-6">
+                            <!-- IFRAME SEGURO PARA VÍDEO DO YOUTUBE -->
+                            <div class="aspect-video w-full rounded-xl overflow-hidden shadow-md bg-black">
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/v6QUw4AGQNo?rel=0" title="Como a Inteligência Artificial auxilia médicos? | Jornal da Band" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                            <div class="mt-4 text-center">
+                                <span class="text-sm text-slate-500">
+                                    Se o vídeo acima não carregar na sua escola, <a href="https://www.youtube.com/watch?v=v6QUw4AGQNo" target="_blank" class="hiperlink-trabalho text-emerald-700 text-base">clique neste hiperlink para abrir no YouTube</a>.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="text-3xl font-bold text-slate-900 border-b-4 border-emerald-200 inline-block pb-2 mb-6 mt-8">Conclusão do Tópico</h3>
+                    <p class="text-xl leading-relaxed text-slate-700 mb-8">
+                        Concluímos que a Inteligência Artificial funciona como uma "grande lupa" para a capacidade humana. Ao processar volumes de dados que um ser humano levaria séculos para ler, ela acelera a ciência e ajuda especialistas do mundo todo a resolverem problemas complexos da nossa era.
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <article id="topic-3" class="view-section hidden-section bg-white min-h-screen pb-24">
+            <div class="w-full bg-gradient-to-r from-purple-600 to-fuchsia-500 pt-24 pb-16 px-4 shadow-inner relative overflow-hidden">
+                <i class="ph-fill ph-briefcase absolute -bottom-10 -right-10 text-9xl text-white opacity-20 scale-150 transform -rotate-12"></i>
+                <div class="max-w-4xl mx-auto relative z-10">
+                    <button onclick="showPage('home-view')" class="flex items-center gap-2 text-white/90 hover:text-white transition mb-8 font-bold bg-black/20 hover:bg-black/30 px-5 py-2.5 rounded-full backdrop-blur-sm w-fit">
+                        <i class="ph-bold ph-arrow-left"></i> Voltar à página principal
+                    </button>
+                    <span class="bg-white/20 text-white px-4 py-1.5 rounded-full text-sm font-bold tracking-wider mb-4 inline-block">TÓPICO 3</span>
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">IA e o futuro do trabalho</h1>
+                </div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto px-4 mt-12 fade-in-up">
+                <div class="prose prose-lg prose-slate max-w-none">
+                    
+                    <h3 class="text-3xl font-bold text-slate-900 border-b-4 border-purple-200 inline-block pb-2 mb-6">Introdução</h3>
+                    <p class="text-xl leading-relaxed text-slate-700 mb-8">
+                        Sempre que uma tecnologia grandiosa surge na história da humanidade, existe o medo coletivo de que as máquinas vão "roubar todos os empregos". Aconteceu na Revolução Industrial e está acontecendo agora. Contudo, a IA está reformulando o mercado, extinguindo algumas funções, mas criando outras que sequer imaginávamos.
+                    </p>
+                    
+                    <h3 class="text-3xl font-bold text-slate-900 border-b-4 border-purple-200 inline-block pb-2 mb-6 mt-8">Desenvolvimento</h3>
+                    <p class="text-xl leading-relaxed text-slate-700 mb-6">
+                        O principal alvo da inteligência artificial no trabalho são as <strong>tarefas repetitivas e burocráticas</strong>. Por exemplo, em vez de um advogado passar dias lendo processos antigos buscando uma lei específica, a IA faz isso em segundos. O advogado não perde o emprego; ele ganha tempo para montar estratégias melhores para o seu cliente.
+                    </p>
+                    <p class="text-xl leading-relaxed text-slate-700 mb-6">
+                        Com essa mudança, surgem profissões totalmente novas, como o <em>"Engenheiro de Prompt"</em> (o profissional especialista em dar os comandos corretos para o ChatGPT gerar as melhores respostas) e os Auditores de Ética em IA, que verificam se os robôs não estão sendo preconceituosos.
+                    </p>
+
+                    <div class="bg-purple-50 border-l-8 border-purple-500 p-8 rounded-r-2xl my-10 shadow-sm">
+                        <h4 class="text-xl font-bold text-purple-900 mb-3 flex items-center gap-2"><i class="ph-bold ph-link-simple"></i> Leitura Recomendada</h4>
+                        <p class="text-lg text-purple-800 mb-0">
+                            Descubra quais são as carreiras do futuro e como os jovens podem se preparar, clicando no hiperlink da reportagem abaixo: <br><br>
+                            👉 <a href="https://guiadoestudante.abril.com.br/orientacao-profissional/10-profissoes-em-alta-para-apostar-em-2026/" target="_blank" class="hiperlink-trabalho text-xl">10 Profissões em Alta (Guia do Estudante)</a>.
+                        </p>
+                    </div>
+
+                    <h3 class="text-3xl font-bold text-slate-900 border-b-4 border-purple-200 inline-block pb-2 mb-6 mt-8">Conclusão do Tópico</h3>
+                    <p class="text-xl leading-relaxed text-slate-700 mb-8">
+                        O profissional do futuro será aquele que sabe colaborar com as máquinas. As habilidades mais valorizadas pelas empresas deixarão de ser a memorização e passarão a ser puramente humanas: criatividade, empatia, liderança e resolução de problemas.
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <article id="topic-4" class="view-section hidden-section bg-white min-h-screen pb-24">
+            <div class="w-full bg-gradient-to-r from-orange-500 to-amber-500 pt-24 pb-16 px-4 shadow-inner relative overflow-hidden">
+                <i class="ph-fill ph-graduation-cap absolute -bottom-10 -right-10 text-9xl text-white opacity-20 scale-150 transform -rotate-12"></i>
+                <div class="max-w-4xl mx-auto relative z-10">
+                    <button onclick="showPage('home-view')" class="flex items-center gap-2 text-white/90 hover:text-white transition mb-8 font-bold bg-black/20 hover:bg-black/30 px-5 py-2.5 rounded-full backdrop-blur-sm w-fit">
+                        <i class="ph-bold ph-arrow-left"></i> Voltar à página principal
+                    </button>
+                    <span class="bg-white/20 text-white px-4 py-1.5 rounded-full text-sm font-bold tracking-wider mb-4 inline-block">TÓPICO 4</span>
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">IA na educação</h1>
+                </div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto px-4 mt-12 fade-in-up">
+                <div class="prose prose-lg prose-slate max-w-none">
+                    
+                    <h3 class="text-3xl font-bold text-slate-900 border-b-4 border-orange-200 inline-block pb-2 mb-6">Introdução</h3>
+                    <p class="text-xl leading-relaxed text-slate-700 mb-8">
+                        Desde o lançamento do ChatGPT, a educação tem sido o setor mais desafiado a se reinventar. Se antes o papel da escola era transmitir informação, hoje o aluno tem todo o conhecimento do mundo a um clique (ou a uma pergunta) de distância. A dinâmica das salas de aula mudou drasticamente.
+                    </p>
+                    
+                    <h3 class="text-3xl font-bold text-slate-900 border-b-4 border-orange-200 inline-block pb-2 mb-6 mt-8">Desenvolvimento</h3>
+                    <p class="text-xl leading-relaxed text-slate-700 mb-6">
+                        A maior revolução trazida pela IA na escola é a <strong>personalização do ensino</strong>. Antigamente, o professor explicava a matéria de um único jeito para 30 alunos diferentes. Hoje, a IA pode atuar como um tutor particular, percebendo que o "Aluno A" tem dificuldade em frações matemáticas e gerando exercícios específicos para ele, enquanto avança o "Aluno B" que já compreendeu o assunto.
+                    </p>
+                    <p class="text-xl leading-relaxed text-slate-700 mb-6">
+                        Para os professores (como a professora Adiana que passou este trabalho!), a IA também é uma aliada formidável. Ela ajuda a planejar aulas mais interativas, organizar notas e gerar ideias criativas para trabalhos em grupo.
+                    </p>
+
+                    <!-- Caixa de Vídeo Interativo -->
+                    <div class="bg-orange-50 border border-orange-200 rounded-3xl overflow-hidden my-10 shadow-lg">
+                        <div class="p-6 border-b border-orange-100 bg-orange-100/50">
+                            <h4 class="text-2xl font-bold text-orange-900 flex items-center gap-3"><i class="ph-fill ph-video-camera text-orange-600 text-3xl"></i> Documentário: A sala de aula do futuro</h4>
+                            <p class="text-orange-800 mt-2">Dê o play para ver como a educação já está sendo transformada fora do Brasil (pode assistir aqui na tela!).</p>
+                        </div>
+                        <div class="p-6">
+                            <!-- IFRAME SEGURO PARA VÍDEO DO YOUTUBE -->
+                            <div class="aspect-video w-full rounded-xl overflow-hidden shadow-md bg-black">
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/7CaXE1vhWCE?rel=0" title="Como escolas suíças já usam inteligência artificial nas aulas" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                            <div class="mt-4 text-center">
+                                <span class="text-sm text-slate-600">
+                                    Se preferir assistir no aplicativo, <a href="https://www.youtube.com/watch?v=7CaXE1vhWCE" target="_blank" class="hiperlink-trabalho text-orange-700 text-base">clique neste hiperlink para a DW Brasil</a>.
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="text-3xl font-bold text-slate-900 border-b-4 border-orange-200 inline-block pb-2 mb-6 mt-8">Conclusão do Tópico</h3>
+                    <p class="text-xl leading-relaxed text-slate-700 mb-8">
+                        No ambiente escolar moderno, copiar textos gerados por IA sem ler é um desperdício de potencial. O desafio da educação é ensinar os alunos a formularem perguntas melhores, duvidarem das informações (checando fatos) e usarem a inteligência artificial para produzir trabalhos com muito mais qualidade e profundidade.
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <article id="topic-5" class="view-section hidden-section bg-white min-h-screen pb-24">
+            <div class="w-full bg-gradient-to-r from-red-600 to-rose-500 pt-24 pb-16 px-4 shadow-inner relative overflow-hidden">
+                <i class="ph-fill ph-warning absolute -bottom-10 -right-10 text-9xl text-white opacity-20 scale-150 transform -rotate-12"></i>
+                <div class="max-w-4xl mx-auto relative z-10">
+                    <button onclick="showPage('home-view')" class="flex items-center gap-2 text-white/90 hover:text-white transition mb-8 font-bold bg-black/20 hover:bg-black/30 px-5 py-2.5 rounded-full backdrop-blur-sm w-fit">
+                        <i class="ph-bold ph-arrow-left"></i> Voltar à página principal
+                    </button>
+                    <span class="bg-white/20 text-white px-4 py-1.5 rounded-full text-sm font-bold tracking-wider mb-4 inline-block">TÓPICO 5</span>
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight">Benefícios e desafios urgentes da IA</h1>
+                </div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto px-4 mt-12 fade-in-up">
+                <div class="prose prose-lg prose-slate max-w-none">
+                    
+                    <h3 class="text-3xl font-bold text-slate-900 border-b-4 border-red-200 inline-block pb-2 mb-6">Introdução</h3>
+                    <p class="text-xl leading-relaxed text-slate-700 mb-8">
+                        Toda ferramenta poderosa tem potencial de construir ou destruir. Uma marreta pode ajudar a construir um hospital, mas também pode derrubar uma casa. Com a Inteligência Artificial é a mesma coisa. Os benefícios (que vimos nos tópicos anteriores) são acompanhados por perigos sociais que precisam ser discutidos urgentemente nas escolas e pelos governos.
+                    </p>
+                    
+                    <h3 class="text-3xl font-bold text-slate-900 border-b-4 border-red-200 inline-block pb-2 mb-6 mt-8">Desenvolvimento: O Problema das Fake News</h3>
+                    <p class="text-xl leading-relaxed text-slate-700 mb-6">
+                        O maior e mais atual perigo da IA envolve a <strong>Desinformação</strong>. Hoje, existem ferramentas gratuitas de clonagem de voz e imagem capazes de criar vídeos hiper-realistas (conhecidos como <em>Deepfakes</em>). Nesses vídeos falsos, criminosos colocam o rosto e a voz exata de pessoas famosas, políticos ou jornalistas dizendo coisas que nunca disseram.
+                    </p>
+                    
+                    <blockquote class="bg-slate-100 border-l-8 border-slate-800 p-6 my-8 text-xl italic text-slate-700 rounded-r-xl">
+                        "Se não conseguimos mais diferenciar um vídeo real de um vídeo gerado por Inteligência Artificial, como poderemos confiar nas provas e nas notícias no futuro?"
+                    </blockquote>
+
+                    <p class="text-xl leading-relaxed text-slate-700 mb-6">
+                        Isso é utilizado para aplicar golpes financeiros em familiares pelo WhatsApp, espalhar mentiras durante eleições (tentando manipular votos) e manchar a reputação de pessoas. Outro grande desafio é a privacidade dos dados: para que essas IAs fiquem inteligentes, elas "leem" e armazenam bilhões de fotos, textos e dados nossos espalhados pela internet, muitas vezes sem a nossa permissão.
+                    </p>
+
+                    <!-- Caixa de Interatividade / Hiperlink -->
+                    <div class="bg-red-50 border-l-8 border-red-500 p-8 rounded-r-2xl my-10 shadow-sm">
+                        <h4 class="text-xl font-bold text-red-900 mb-3 flex items-center gap-2"><i class="ph-bold ph-link-simple"></i> Alerta de Segurança (G1)</h4>
+                        <p class="text-lg text-red-800 mb-0">
+                            Para entender como se proteger e aprender a identificar esses vídeos falsos nas redes sociais, acesse a reportagem oficial através deste hiperlink:<br><br>
+                            👉 <a href="https://g1.globo.com/tecnologia/noticia/2022/02/11/o-que-e-deepfake-e-como-ele-e-usado-para-distorcer-realidade.ghtml" target="_blank" class="hiperlink-trabalho text-xl text-red-700 hover:text-red-900">O que é Deepfake e como se defender? (G1)</a>
+                        </p>
+                    </div>
+
+                    <h3 class="text-3xl font-bold text-slate-900 border-b-4 border-red-200 inline-block pb-2 mb-6 mt-8">Conclusão do Tópico</h3>
+                    <p class="text-xl leading-relaxed text-slate-700 mb-8">
+                        Para que o balanço seja positivo, a sociedade não pode apenas cruzar os braços. É essencial que existam leis para punir criadores de deepfakes, regulamentações para as grandes empresas de tecnologia e, acima de tudo, que alunos e cidadãos desenvolvam um espírito crítico para nunca compartilharem informações antes de <strong>checar as fontes</strong> (verificando sempre os hiperlinks originais!).
+                    </p>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <script>
+        function showPage(pageId) {
+            // Esconde todas as páginas
+            const views = document.querySelectorAll('.view-section');
+            views.forEach(view => {
+                view.classList.add('hidden-section');
+                view.classList.remove('fade-in-up'); 
+            });
+            
+            // Mostra a página selecionada com animação
+            const targetView = document.getElementById(pageId);
+            if(targetView) {
+                targetView.classList.remove('hidden-section');
+                
+                // Reinicia a animação garantindo o reflow do navegador
+                void targetView.offsetWidth; 
+                
+                // Aplica elementos visuais na nova página
+                targetView.classList.add('fade-in-up');
+                
+                // Faz rolar pro topo suavemente
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
